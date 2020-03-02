@@ -13,7 +13,15 @@
           class="card"
         >
           <h3>{{news.title}}</h3>
-          
+
+          <div>
+            <a :href="news.url" target="_blank">
+              <img :src="news.urlToImage" alt="">
+            </a>
+          </div>
+          <p>{{news.description}}</p>
+          <h4>By: {{news.author}}</h4>
+          <p>Published on: {{news.publishedAt | moment("dddd, MMMM Do YYYY") }}</p>
           
         </div>
       </div>
@@ -41,10 +49,15 @@
 </template>
 
 <script>
+// import moment from 'moment'
+// import tz from 'moment-timezone'
+
 import Logo from '~/components/Logo.vue'
 import MarqueeScroll from '~/components/MarqueeScroll.vue'
 import ShareOnTwitter from '~/components/ShareOnTwitter.vue'
 import Footer from '~/components/Logo.vue'
+
+
 
 export default {
   components: {
@@ -59,10 +72,8 @@ export default {
   data(){
     return {
       apiKey: process.env.API_KEY,
-      breakingNews: null,
-
-
-
+      breakingNews : [],
+      marqueeNews: [],
 
     }
   },
@@ -70,27 +81,20 @@ export default {
 
   },
   async created(){
-    var url = 'http://newsapi.org/v2/top-headlines?' + 'country=us&' + 'apiKey=' + this.apiKey;
+    var vm = this
+    var url = 'http://newsapi.org/v2/top-headlines?' + 'country=ca&' + 'apiKey=' + this.apiKey;
       
     fetch(url)
       .then(results => results.json())
       // returns info as a json object
       .then(results => {
-        console.log(results)
-
         this.breakingNews = results.articles.splice(0,3)
         console.log(this.breakingNews)
-      })
 
-    
-    
+      })
   },
 
   methods: {
-    
-
-
-
 
   }
 }
