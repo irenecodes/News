@@ -40,6 +40,13 @@
 
     Famous births from this day in history
 
+    <section>
+      Looking for a future event? See what's coming up on: 
+      <!-- input for date -->
+      at
+      <!-- input for location  -->
+    </section>
+
 
 
     <footer></footer>
@@ -73,7 +80,7 @@ export default {
     return {
       apiKey: process.env.API_KEY,
       breakingNews : [],
-      marqueeNews: [],
+      
 
     }
   },

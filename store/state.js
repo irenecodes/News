@@ -1,9 +1,8 @@
 const state = {
-  //for marquee
-  breakingNews: null,
-    // on main page 
-  todaysFeaturedArticle: null,
+  // on main page
   news: null,
   births: null,
   deaths: null,
+
+  marqueeNews: null,
 };
