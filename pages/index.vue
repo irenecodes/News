@@ -1,9 +1,49 @@
 <template>
   <div class="container">
+    <marquee-scroll></marquee-scroll>
+
     <header>
-      <marquee-scroll></marquee-scroll>
-      <h1>Breaking News</h1>
+      <div class="pimg1">
+        <div class="ptext">
+          <h1>Breaking News</h1>
+        </div>
+      </div>
     </header>
+
+    
+
+    <section class="section section-light">
+      <h2>Section One</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, at expedita neque minima pariatur enim animi repudiandae quo, reprehenderit quaerat rerum minus impedit corporis labore. Aspernatur, fugiat veniam iure aliquam minima quisquam non, pariatur quos laudantium expedita quaerat eos doloremque corporis suscipit laborum quidem accusamus ut neque, sequi beatae maiores mollitia? Nobis, a et quam doloremque exercitationem laboriosam perferendis veritatis blanditiis nostrum sequi iste illo fugiat, quae voluptate qui voluptatum, sit provident. Quam amet adipisci recusandae excepturi nobis? Porro unde enim temporibus alias laudantium nemo distinctio, blanditiis saepe dolorum quisquam rerum quia quam maiores reprehenderit voluptate assumenda suscipit esse? Unde.</p>
+    </section>
+
+    <div class="pimg2">
+      <div class="ptext">
+        <span class="border">Image Two Text</span>
+      </div>
+    </div>
+
+    <section class="section section-dark">
+      <h2>Section Two</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, at expedita neque minima pariatur enim animi repudiandae quo, reprehenderit quaerat rerum minus impedit corporis labore. Aspernatur, fugiat veniam iure aliquam minima quisquam non, pariatur quos laudantium expedita quaerat eos doloremque corporis suscipit laborum quidem accusamus ut neque, sequi beatae maiores mollitia? Nobis, a et quam doloremque exercitationem.</p>
+    </section>
+
+    <div class="pimg3">
+      <div class="ptext">
+        <span class="border">Image 3 Text</span>
+      </div>
+    </div>
+
+    <section class="section section-dark">
+      <h2>Section Three</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, at expedita neque minima pariatur enim animi repudiandae quo, reprehenderit quaerat rerum minus impedit corporis labore. Aspernatur, fugiat veniam iure aliquam alias laudantium nemo distinctio, blanditiis saepe dolorum quisquam rerum quia quam maiores reprehenderit voluptate assumenda suscipit esse? Unde.</p>
+    </section>
+
+    
+
+
+
+
   
     <section>
       <div class="card-container">
@@ -26,6 +66,8 @@
         </div>
       </div>
     </section>
+
+
 
     <section>
       <h2>What would you like to know about?</h2>
@@ -80,6 +122,7 @@ export default {
     return {
       apiKey: process.env.API_KEY,
       breakingNews : [],
+      latestArticle: [],
       
 
     }
@@ -96,8 +139,9 @@ export default {
       // returns info as a json object
       .then(results => {
         this.breakingNews = results.articles.splice(0,3)
-        console.log(this.breakingNews)
+        this.latestArticle = results.articles[0]
 
+        console.log(this.breakingNews)
       })
   },
 

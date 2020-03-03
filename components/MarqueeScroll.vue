@@ -1,5 +1,17 @@
 <template>
-  <p>Marquee Scroll</p>
+    <!-- <div class="marquee3k" 
+        data-speed="0.25" 
+        data-reverse="bool" 
+        data-pausable="bool">
+        <p 
+            v-for="(article, i) in this.$store.state.marqueeNews"
+            :key="i">
+
+        </p>
+    </div> -->
+    <div>
+
+    </div>
 </template>
 
 <script>
@@ -20,6 +32,9 @@ export default {
                 console.log(this.$store.state.marqueeNews)
             })
     },
+    mounted(){
+        // Marquee3k.init()
+    }
 
 }
 </script>
