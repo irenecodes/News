@@ -4,5 +4,5 @@ const state = {
   births: null,
   deaths: null,
 
-  marqueeNews: null,
+
 };

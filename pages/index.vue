@@ -98,9 +98,6 @@
 </template>
 
 <script>
-// import moment from 'moment'
-// import tz from 'moment-timezone'
-
 import Logo from '~/components/Logo.vue'
 import MarqueeScroll from '~/components/MarqueeScroll.vue'
 import ShareOnTwitter from '~/components/ShareOnTwitter.vue'

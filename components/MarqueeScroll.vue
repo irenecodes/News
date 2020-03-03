@@ -1,39 +1,40 @@
 <template>
-    <!-- <div class="marquee3k" 
-        data-speed="0.25" 
-        data-reverse="bool" 
-        data-pausable="bool">
-        <p 
-            v-for="(article, i) in this.$store.state.marqueeNews"
-            :key="i">
-
-        </p>
-    </div> -->
-    <div>
-
+    <div class="ticker-wrap">
+        <div 
+            class="ticker"
+            v-for="(article, i) in marqueeNews"
+            :key="i"
+        >
+            <a :href="article.url" target=_blank>
+                {{article.title}}
+            </a>
+        </div>
     </div>
 </template>
 
+
 <script>
+
 export default {
     data(){
         return {
-            apiKey: process.env.API_KEY
+            apiKey: process.env.API_KEY,
+            marqueeNews: null,
         }
     },
     async created(){
         var categoryUrl = 'http://newsapi.org/v2/top-headlines?' + 'country=ca&' + 'category=health&' + 'apiKey=' + this.apiKey;
-
-
         fetch(categoryUrl)
             .then(results => results.json())
             .then(results => {
-                this.$store.state.marqueeNews = results.articles.splice(0,5)
-                console.log(this.$store.state.marqueeNews)
+                this.marqueeNews = results.articles.splice(0,5)
+                console.log(this.marqueeNews)
+
+                
             })
     },
     mounted(){
-        // Marquee3k.init()
+
     }
 
 }
