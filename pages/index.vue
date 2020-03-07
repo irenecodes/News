@@ -84,7 +84,7 @@
 
     <section>
       Looking for a future event? See what's coming up on: 
-      <!-- input for date -->
+      <!-- input for date + submit button to fetch results -->
       at
       <!-- input for location  -->
     </section>

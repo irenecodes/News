@@ -1,11 +1,10 @@
 <template>
     <div class="ticker-wrap">
         <div 
-            class="ticker"
-            v-for="(article, i) in marqueeNews"
-            :key="i"
+            class="ticker"   
         >
-            <a :href="article.url" target=_blank>
+            <a v-for="(article, i) in marqueeNews"
+            :key="i" :href="article.url" target="_blank" class="ticker__item">
                 {{article.title}}
             </a>
         </div>
@@ -27,10 +26,10 @@ export default {
         fetch(categoryUrl)
             .then(results => results.json())
             .then(results => {
-                this.marqueeNews = results.articles.splice(0,5)
+                this.marqueeNews = results.articles.splice(0,3)
                 console.log(this.marqueeNews)
 
-                
+
             })
     },
     mounted(){
